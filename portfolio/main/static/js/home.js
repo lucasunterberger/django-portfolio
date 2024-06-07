@@ -16,14 +16,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (nameMatch) {
                 project.style.display = "";
-            }
-            else {
+            } else {
                 project.style.display = "none";
             }
 
         })
     }
-
-
-
+    nameSearch.addEventListener("keyup", filterProjects)
 })

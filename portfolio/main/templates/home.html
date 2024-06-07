@@ -17,6 +17,7 @@ Home Page
         <button class="tag", data-tag="{{ tag.name|lower }}">{{ tag.name }}</button>
         {% endfor %}
     </div>
+</div>
     <div class="projects-list">
         {% for project in projects %}
         <div class="project" data-name="{{ project.title|lower }}" data-tags="{{ project.tags.all|join:', '|lower }}">
@@ -27,8 +28,6 @@ Home Page
         {% endfor %}
 
     </div>
-
-</div>
 {% endblock content %}
 
 {% block extra_js %}
