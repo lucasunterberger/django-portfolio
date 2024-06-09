@@ -2,8 +2,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const nameSearch = document.getElementById("name-search")
     const tags = document.querySelectorAll(".tag")
     const projects = document.querySelectorAll(".project")
-    console.log(nameSearch)
-    console.log(projects)
 
     function filterProjects() {
         const nameQuery = nameSearch.value.toLowerCase();
@@ -11,8 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
         projects.forEach((project) => {
             const name = project.getAttribute('data-name')
             const nameMatch = name.includes(nameQuery)
-            console.log(name)
-            console.log(nameMatch)
 
             if (nameMatch) {
                 project.style.display = "";
@@ -22,5 +18,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
         })
     }
+
+    tags.forEach((tag) => {
+        tag.addEventListener("click", function () {
+            const selectedTag = this.getAttribute("data-tag")
+
+            projects.forEach((project) => {
+                const projectTags = project.getAttribute("data-tags")
+                if (projectTags.includes(selectedTag)) {
+                    project.style.display = "";
+                } else {
+                    project.style.display = none;
+                }
+            })
+        })
+
+
+    })
+
     nameSearch.addEventListener("keyup", filterProjects)
 })
